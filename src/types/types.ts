@@ -7,7 +7,22 @@ export type BodyProduct = {
   orderId: number;
 };
 export type ProductWithoutOrderId = Omit<Product, 'orderId'>;
-export type ServiceResponse = {
+
+export type ServiceResponseError = {
+  type: 'UNAUTHORIZED' | 'NOT_FOUND' | 'INVALID_DATA',
+  data: {
+    message: string;
+  }
+};
+
+export type ServiceResponseSuccess<T> = {
+  type: 'OK' | 'CREATED',
+  data: T;
+};
+
+export type ServiceResponse<T> = ServiceResponseSuccess<T> | ServiceResponseError;
+
+export type GetAllProductResponse = {
   status: number;
-  data: ProductWithoutOrderId;
+  data: Product[];
 };
