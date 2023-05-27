@@ -12,7 +12,7 @@ const getAllOrders = async ():Promise<ServiceResponse<Order[]>> => {
   });
   const data = result.map(({ dataValues }) => {
     const { id, productIds, userId } = dataValues;
-    const productData = (productIds as Product[] | undefined)?.map((product) => product.id);
+    const productData = (productIds as Product[])?.map((product) => product.id);
     return {
       id,
       userId,
