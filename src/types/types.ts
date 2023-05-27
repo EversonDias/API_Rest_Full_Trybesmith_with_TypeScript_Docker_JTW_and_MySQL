@@ -32,3 +32,8 @@ export type Order = {
   userId: number;
   productId: Array<number>;
 };
+
+export type Login = {
+  username: string;
+  password: string;
+};
