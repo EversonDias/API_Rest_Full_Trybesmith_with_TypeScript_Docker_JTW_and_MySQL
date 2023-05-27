@@ -26,3 +26,9 @@ export type GetAllProductResponse = {
   status: number;
   data: Product[];
 };
+
+export type Order = {
+  id: number;
+  userId: number;
+  productId: Array<number>;
+};
