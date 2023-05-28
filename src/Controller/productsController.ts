@@ -4,19 +4,13 @@ import productsServices from '../Service/productsServices';
 
 const createProduct = async (req: Request, res: Response): Promise<Response> => {
   const payload = req.body;
-  const { type, data } = await productsServices.createProduct(payload);
-  if (type === 'CREATED') {
-    return res.status(status.CREATED).json(data);
-  }
-  return res.status(status.BAD_REQUEST).json(data);
+  const { data } = await productsServices.createProduct(payload);
+  return res.status(status.CREATED).json(data);
 };
 
 const getAllProducts = async (_req: Request, res: Response): Promise<Response> => {
-  const { type, data } = await productsServices.getAllProducts();
-  if (type === 'OK') {
-    return res.status(status.OK).json(data);
-  }
-  return res.status(status.BAD_REQUEST).json(data);
+  const { data } = await productsServices.getAllProducts();
+  return res.status(status.OK).json(data);
 };
 
 export default {
