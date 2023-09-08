@@ -8,6 +8,7 @@
     "npm": ">=7.0.0"
   },
   "scripts": {
+    "predev": "npm install && npm run db:reset",
     "start": "ts-node src/server.ts",
     "dev": "nodemon --watch \"./src/**\" --ext \"ts,js\" --ignore \"src/**/*.spec.ts,src/**/*.json\" --exec \"ts-node src/server.ts\"",
     "build": "npx -y tsc",

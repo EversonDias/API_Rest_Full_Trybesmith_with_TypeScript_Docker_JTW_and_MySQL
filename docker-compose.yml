@@ -4,10 +4,7 @@ services:
   # Serviço que irá rodar o node
   app-trybesmith:
     # Imagem base do container
-    build: .
-    # Usuário linux padrão do container, não é recomendado usar root
-    # https://github.com/nodejs/docker-node/blob/main/docs/BestPractices.md#non-root-user
-    user: node
+    image: node:16
     # Nome do container para facilitar execução
     container_name: trybesmith_api
     # Mesmo que `docker run -t`
@@ -16,10 +13,10 @@ services:
     stdin_open: true
     # Substitui o comando padrão da imagem do node
     command: npm run dev
-    image: trybesmith-api:8.5
     # Restarta a imagem caso algo a faça parar
     restart: always
-    # platform: linux/x86_64
+    # Diretório padrão de execução
+    working_dir: /app
     # Lista de volumes (diretórios) mapeados de fora para dentro do container
     volumes:
       # Monta o diretório atual, com todos os dados do projeto, 
